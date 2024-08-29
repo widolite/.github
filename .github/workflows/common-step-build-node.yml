@@ -13,9 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: install dependencies.
         run: npm install
-      - run: ls -la
+      - name: compressing node modules.
+        run: tar Jcvf node_modules.tar.gz node_modules
       - name: upload modules stuff.
         uses: actions/upload-artifact@v3
         with:
           name: modules
-          path: app/node_modules/
+          path: app/node_modules.tar.gz
